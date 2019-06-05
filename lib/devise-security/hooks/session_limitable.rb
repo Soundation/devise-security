@@ -11,7 +11,6 @@ Warden::Manager.after_set_user except: :fetch do |record, warden, options|
       unique_session_id = Devise.friendly_token
     end
     warden.session(options[:scope])['unique_session_id'] = unique_session_id
-    record.update_unique_session_id!(unique_session_id)
   end
 end
 
